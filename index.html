@@ -8,36 +8,74 @@
   <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css'>
 
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>sportstore</title>
+  <title>SportStore</title>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">sportstore</span>
-      </a>
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select d-flex justify-content-between px-4">
+      <span class="ms-2">sportstore</span>
+      <div class="selectable">
+        <div class="mdi mdi-magnify-plus-outline" data-bs-target="#search" data-bs-toggle="modal" onclick="">
+        </div>
+
+        <!-- <div class="mdi mdi-cart" data-bs-target="#shoppingcart" data-bs-toggle="modal" onclick=""></div> -->
+      </div>
     </nav>
   </header>
   <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+    <div class="container-fluid d-flex flex-column">
+      <div class="row flex-grow">
+        <div class="col-2 bg-secondary py-3">
+          <h4 class="selectable p-2" onclick="app.BaseballController.drawBaseball()">Baseball</h4>
+          <h4 class="selectable p-2" onclick="">Football</h4>
+          <h4 class="selectable p-2" onclick="">Basketball</h4>
+        </div>
+      </div>
+      <div class="col-10" id="base">
+        <!-- <div id="products" class="row">
+          <div class="col-md-4 mt-3">
+            <div class="bg-primary rounded shadow">
+              <h4>Product Name: glove</h4>
+              <div class="d-flex justify-content-between">
+                <p>quantity: type</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      </div>
+  </main>
+
+  <div class="modal fade" id="search" tabindex="-1" aria-labelledby="newItems" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-light d-flex">
+          <h5 class="modal-title" id="newListingLabel">Your Item:</h5>
+          <button type="button" class="btn btn-danger text-dark mdi mdi-cart-plus justify-content-center"
+            style="margin-right: auto; margin-left: auto;" onclick="app.BaseballController.drawBaseballItem()"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="createItem">
+          <!-- FORM INJECTED HERE -->
         </div>
       </div>
     </div>
-  </main>
+  </div>
+
+
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
       <p><small>Made with 💖 by Codeworks</small></p>
     </div>
   </footer>
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
